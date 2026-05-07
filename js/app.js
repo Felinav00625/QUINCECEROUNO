@@ -14,7 +14,7 @@ const projects = [
     concept: 'Establecer el espacio común —la circulación— como un elemento principal. Tomando como referencia los patios internos de las casonas de la zona, establecimos un vacío central en el lote que articula ambos bloques de apartamentos, de esta forma forzamos a los residentes a circular por ese patio propiciando la convivencia entre ellos. A su vez, este patio de doble altura resuelve la ventilación e iluminación de los apartamentos, por lo que las fachadas principales de cada bloque se vuelven hacia el centro del lote, mostrando una apertura hacia el patio interno. Las fachadas que dan hacia las aceras se tornan más cerradas y ensimismadas para ser consecuentes con la idea original del proyecto: darle prioridad a lo que está pasando adentro.'
   },
   {
-    name: 'Casa Linde', year: '2024', type: ' Casa Residencial',
+    name: 'Casa Linde', year: '2024', type: 'Residencia',
     location: 'Cartago Oriental, Costa Rica', area: '540 m²', status: 'Construido',
     photo: 'Roberto D\'Ambrosio',
     thumbnail: 'assets/casa-linde/casa-linde-1.png',
@@ -49,7 +49,7 @@ const projects = [
   },
   {
     name: 'Casa Viento', year: '2024', type: 'Casa Residencial',
-    location: 'Oreamuno,Cartago,Costa Rica', area: '174m²', status: 'Construido',
+    location: 'Costa Rica', area: '', status: 'Construido',
     photo: "Roberto D'Ambrosio",
     thumbnail: 'assets/casa-viento/quince_cero_uno_casa_arriba_alta-13.jpg',
     images: [
@@ -70,7 +70,7 @@ const projects = [
   },
   {
     name: 'Casa Peraz', year: '2024', type: 'Casa Residencial',
-    location: ' Tres Ríos,Cartago,Costa Rica', area: '', status: 'Construido',
+    location: 'Costa Rica', area: '', status: 'Construido',
     photo: "Roberto D'Ambrosio",
     thumbnail: 'assets/casa-peraz/casa_3_rios_alta-4.jpg',
     images: [
@@ -347,5 +347,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modalBackdrop.addEventListener('click', closeModal);
   modalClose.addEventListener('click', closeModal);
+
+  // ============================================================
+  // PROJECT SCROLL ARROWS
+  // ============================================================
+  const grid     = document.getElementById('projectsGrid');
+  const btnPrev  = document.getElementById('projPrev');
+  const btnNext  = document.getElementById('projNext');
+
+  function updateArrows() {
+    if (!grid || !btnPrev || !btnNext) return;
+    btnPrev.disabled = grid.scrollLeft <= 0;
+    btnNext.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1;
+  }
+
+  if (grid && btnPrev && btnNext) {
+    const STEP = 300;
+
+    btnPrev.addEventListener('click', () => {
+      grid.scrollBy({ left: -STEP, behavior: 'smooth' });
+    });
+
+    btnNext.addEventListener('click', () => {
+      grid.scrollBy({ left: STEP, behavior: 'smooth' });
+    });
+
+    grid.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  }
+
 
 });
