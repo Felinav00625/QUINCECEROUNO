@@ -757,3 +757,40 @@
    .nav__link--active {
      color: var(--black) !important;
    }
+   
+   
+   /* ============================================================
+      JUSTIFIED TEXT — exempt navigation and labels
+      ============================================================ */
+   .nav__logo,
+   .nav__links a,
+   .nav__location,
+   .projects__header,
+   .project-card__num,
+   .project-card__name,
+   .project-card__meta,
+   .about__label,
+   .about__stat-num,
+   .about__stat-label,
+   .team__label,
+   .team__name,
+   .team__role,
+   .footer__label,
+   .footer__col a,
+   .footer__col p,
+   .modal__eyebrow,
+   .modal__title,
+   .modal__tagline,
+   .modal__concept-label,
+   .modal__detail-label,
+   .modal__detail-val,
+   .gallery-counter,
+   .intro__sub {
+     text-align: left;
+   }
+   
+   .about__body,
+   .team__bio,
+   .modal__body {
+     text-align: justify;
+   }

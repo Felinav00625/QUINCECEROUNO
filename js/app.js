@@ -70,7 +70,7 @@ const projects = [
   },
   {
     name: 'Casa Peraz', year: '2024', type: 'Casa Residencial',
-    location: 'Costa Rica', area: '', status: 'Construido',
+    location: 'Costa Rica', area: '182m²', status: 'Construido',
     photo: "Roberto D'Ambrosio",
     thumbnail: 'assets/casa-peraz/casa_3_rios_alta-4.jpg',
     images: [
